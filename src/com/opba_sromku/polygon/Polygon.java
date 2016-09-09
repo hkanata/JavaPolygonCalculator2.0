@@ -1,4 +1,4 @@
-package com.sromku.polygon;
+package main.sromku.polygon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +8,20 @@ import java.util.List;
  * 
  * @see {@link Builder}
  * @author Roman Kushnarenko (sromku@gmail.com)
+ * @author Opba (hkanata@gmail.com)
  */
 public class Polygon
 {
 	private final BoundingBox _boundingBox;
 	private final List<Line> _sides;
+	private final List<Point> _vertexes;
 
-	private Polygon(List<Line> sides, BoundingBox boundingBox)
+	
+	private Polygon(List<Line> sides, BoundingBox boundingBox,List<Point> vertexes)
 	{
 		_sides = sides;
 		_boundingBox = boundingBox;
+		_vertexes = vertexes;
 	}
 
 	/**
@@ -29,6 +33,12 @@ public class Polygon
 	{
 		return new Builder();
 	}
+	
+	public Point getCenter(){
+		PolyCenter p = new PolyCenter();
+		return p.getCenter(_vertexes);
+	}
+
 
 	/**
 	 * Builder of the polygon
@@ -73,7 +83,12 @@ public class Polygon
 
 			return this;
 		}
-
+		
+		public void testa(){
+			
+		}
+		
+		
 		/**
 		 * Close the polygon shape. This will create a new side (edge) from the <b>last</b> vertex point to the <b>first</b> vertex point.
 		 * 
@@ -106,7 +121,7 @@ public class Polygon
 				_sides.add(new Line(_vertexes.get(_vertexes.size() - 1), _vertexes.get(0)));
 			}
 
-			Polygon polygon = new Polygon(_sides, _boundingBox);
+			Polygon polygon = new Polygon(_sides, _boundingBox, _vertexes);
 			return polygon;
 		}
 

@@ -1,7 +1,9 @@
-package com.sromku.test;
+package main.sromku.test;
 
-import com.sromku.polygon.Point;
-import com.sromku.polygon.Polygon;
+import main.sromku.polygon.Point;
+import main.sromku.polygon.Polygon;
+
+
 
 public class Tests
 {
@@ -30,10 +32,19 @@ public class Tests
 		// Point is inside
 		isInside(polygon, new Point(5.5f, 7));
 		
+		//printing the center
+		printCenter(polygon.getCenter());
+		
 		// Point isn't inside
 		isInside(polygon, new Point(4.5f, 7));
 	}
 	
+	private static void printCenter(Point center) {
+		// TODO Auto-generated method stub
+		System.out.println("Polygon Center: [Latitude or (X):"+center.x + "][Longitude or (Y):"+center.y + "]");
+		System.out.println();
+	}
+
 	/**
 	 * Create polygon two holes and check that the point is inside
 	 */
@@ -62,6 +73,9 @@ public class Tests
 		
 		// Point isn't inside
 		isInside(polygon, new Point(6.5f, 5.8f));
+		
+		// Center of polygon
+		printCenter(polygon.getCenter());
 	}
 	
 	/**

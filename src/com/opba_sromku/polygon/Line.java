@@ -1,9 +1,11 @@
-package com.sromku.polygon;
+package main.sromku.polygon;
+
 
 /**
  * Line is defined by starting point and ending point on 2D dimension.<br>
  * 
  * @author Roman Kushnarenko (sromku@gmail.com)
+ * @author Opba (hkanata@gmail.com)
  */
 public class Line
 {

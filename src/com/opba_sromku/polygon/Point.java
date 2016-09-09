@@ -1,9 +1,10 @@
-package com.sromku.polygon;
+package main.sromku.polygon;
 
 /**
  * Point on 2D landscape
  * 
  * @author Roman Kushnarenko (sromku@gmail.com)</br>
+ * @author Opba (hkanata@gmail.com)
  */
 public class Point
 {
@@ -12,7 +13,8 @@ public class Point
 		this.x = x;
 		this.y = y;
 	}
-
+	public Point(){	}
+	
 	public float x;
 	public float y;
 
